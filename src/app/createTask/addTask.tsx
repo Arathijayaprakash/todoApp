@@ -33,7 +33,11 @@ const AddTask = ({
       setTaskName("");
       toast.success("Task Added Successfully");
     } catch (error) {
-      toast.error(`${error}`);
+      if (!taskName) {
+        toast.error("Please enter a task");
+      } else {
+        toast.error(`${error}`);
+      }
     }
   };
 
